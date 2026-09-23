@@ -42,7 +42,7 @@ jobs:
           HUGO_ENVIRONMENT: production
         run: >-
           hugo --gc --minify
-          --baseURL "${{ steps.pages.outputs.base_url }}/"
+          --baseURL "https://maszyna-reloaded.pl/"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
