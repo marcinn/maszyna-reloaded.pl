@@ -21,6 +21,7 @@ make build
 ## Treść i materiały
 
 - `layouts/index.html` — sekcje landing page'a i podpisy galerii.
+- `layouts/page/download.html` — instrukcja, ograniczenia, changelog i pliki aktualnego wydania.
 - `hugo.toml` — linki społecznościowe i adresy paczek Windows/Linux.
 - `assets/img/gallery/` — oryginalne zrzuty ekranu przetwarzane przez Hugo.
 - `assets/scss/main.scss` — cała warstwa wizualna.

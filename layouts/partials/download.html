@@ -1,22 +1,6 @@
-{{- $id := .id -}}
-{{- $downloads := site.Params.downloads -}}
-{{- $primary := index (where $downloads "primary" true) 0 -}}
-<div class="download-split" data-download>
-  <a class="download-primary" href="{{ $primary.url }}" target="_blank" rel="noopener noreferrer" aria-label="Pobierz MaSzynę Reloaded dla {{ $primary.label }} w nowej karcie">
+<div class="download-split">
+  <a class="download-primary download-primary--page" href="{{ "pobierz/" | relURL }}" aria-label="Przejdź do strony pobierania MaSzyny Reloaded">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 20h14" /></svg>
-    <span><strong>Pobierz</strong><small>{{ $primary.label }} · ZIP</small></span>
+    <span><strong>Pobierz</strong><small>Informacje i pliki</small></span>
   </a>
-  <button class="download-toggle" type="button" aria-expanded="false" aria-controls="{{ $id }}" aria-label="Wybierz system operacyjny" data-download-toggle>
-    <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 7.5 5 5 5-5" /></svg>
-  </button>
-  <div class="download-menu" id="{{ $id }}" data-download-menu hidden>
-    <p>Wybierz system</p>
-    {{ range $downloads }}
-      <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">
-        <span class="platform-icon platform-icon--{{ .id }}" aria-hidden="true">{{ if eq .id "windows" }}⊞{{ else }}◆{{ end }}</span>
-        <span><strong>{{ .label }}</strong><small>Archiwum ZIP · bezpośrednio</small></span>
-        <span aria-hidden="true">↓</span>
-      </a>
-    {{ end }}
-  </div>
 </div>

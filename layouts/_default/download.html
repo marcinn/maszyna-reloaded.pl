@@ -1,0 +1,101 @@
+{{ define "main" }}
+<section class="release-hero">
+  <div class="release-hero__lines" aria-hidden="true"></div>
+  <div class="container release-hero__inner">
+    <a class="release-back" href="{{ site.Home.RelPermalink }}"><span aria-hidden="true">←</span> Strona główna</a>
+    <p class="eyebrow"><span></span> Wydanie do pobrania</p>
+    <h1>MaSzyna Reloaded <em>Exe Pre-Alpha</em></h1>
+    <div class="release-version">
+      <strong>20260921</strong>
+      <span>build 1300</span>
+    </div>
+    <p class="release-lead">Wczesna, niekompletna wersja demonstracyjna. Nie jest pełnoprawnym zamiennikiem klasycznej MaSzyny i zawiera znane błędy.</p>
+  </div>
+</section>
+
+<section class="release-content">
+  <div class="container release-grid">
+    <div class="release-main">
+      <aside class="release-warning" aria-labelledby="instalacja-title">
+        <div class="release-warning__mark" aria-hidden="true">!</div>
+        <div>
+          <p class="release-label">Ważne przed instalacją</p>
+          <h2 id="instalacja-title">Rozpakuj ZIP do katalogu z oryginalną MaSzyną</h2>
+          <p><strong>Koniecznie rozpakuj wszystkie pliki z archiwum.</strong> Uruchamianie programu bezpośrednio z pliku ZIP albo wypakowanie tylko części zawartości nie zadziała poprawnie.</p>
+        </div>
+      </aside>
+
+      <section class="release-block" aria-labelledby="kroki-title">
+        <p class="release-label">Instalacja</p>
+        <h2 id="kroki-title">Trzy kroki i gotowe</h2>
+        <ol class="release-steps">
+          <li><span>1</span><div><strong>Pobierz paczkę ZIP</strong><p>Wybierz wersję dla Windows 64-bit albo Linux 64-bit.</p></div></li>
+          <li><span>2</span><div><strong>Rozpakuj wszystkie pliki</strong><p>Wypakuj całą zawartość archiwum do folderu z zainstalowaną oryginalną MaSzyną.</p></div></li>
+          <li><span>3</span><div><strong>Uruchom grę</strong><p>Uruchom <code>reloaded.exe</code> z folderu gry.</p></div></li>
+        </ol>
+      </section>
+
+      <section class="release-block" aria-labelledby="klawisze-title">
+        <p class="release-label">Sterowanie</p>
+        <h2 id="klawisze-title">Podstawowe klawisze</h2>
+        <div class="key-list">
+          <div><kbd>—</kbd><p><strong>Sterowanie pojazdem</strong><span>Standardowe klawisze z MaSzyny</span></p></div>
+          <div><kbd>F3</kbd><p><strong>Licznik FPS</strong><span>Dwa tryby wyświetlania</span></p></div>
+          <div><kbd>F9</kbd><p><strong>Czas i pogoda</strong><span>Otwiera panel czasu i pogody</span></p></div>
+          <div><kbd>F6</kbd><p><strong>Latarka</strong><span>Włącza lub wyłącza latarkę</span></p></div>
+        </div>
+      </section>
+
+      <section class="release-block limitations" aria-labelledby="ograniczenia-title">
+        <p class="release-label">Pre-alpha</p>
+        <h2 id="ograniczenia-title">Ograniczenia i znane błędy</h2>
+        <ul>
+          <li>Nie wszystkie polecenia i kontrolki działają. Nie każdy pojazd da się uruchomić.</li>
+          <li><strong>Skrót ustawiający kran zespolonego na pozycję jazdy może nie działać, zanim nie ruszy się kranem.</strong></li>
+          <li>Ustawienia grafiki są obecnie na poziomie High lub wyższym. Nie można ich jeszcze zmienić.</li>
+          <li>Rozjazdy mają błędy renderingu podsypki.</li>
+          <li>Animacja iglic nie działa (regresja).</li>
+          <li><strong>Brak scenariuszy i AI.</strong></li>
+          <li>Niekompletne opisy kabin (pliki MMD) powodują braki w sterowaniu. Istnieje warstwa obejściowa, ale nie jest jeszcze kompletna.</li>
+          <li>Po wyjściu z pojazdu przez <kbd>F4</kbd> sterowanie przepada — ten klawisz opuszcza pojazd. Z widoku zewnętrznego <kbd>Shift</kbd> + <kbd>F4</kbd> nadal działa.</li>
+          <li>Możliwe są błędy w zachowaniu pojazdów.</li>
+          <li>Dźwięk może być niekompletny i miejscami wadliwy.</li>
+        </ul>
+      </section>
+
+      <section class="release-block changelog" aria-labelledby="changelog-title">
+        <p class="release-label">Historia wydań</p>
+        <h2 id="changelog-title">Changelog</h2>
+        <article class="changelog-entry">
+          <div class="changelog-entry__meta">
+            <time datetime="2026-09-21">21.09.2026</time>
+            <span>build 1300</span>
+          </div>
+          <div>
+            <h3>MaSzyna Reloaded Exe Pre-Alpha 20260921</h3>
+            <p>Aktualne wydanie demonstracyjne dla systemów Windows 64-bit i Linux 64-bit. Lista ograniczeń i znanych błędów znajduje się powyżej.</p>
+          </div>
+        </article>
+      </section>
+    </div>
+
+    <aside class="release-downloads" aria-labelledby="pliki-title">
+      <div class="release-downloads__card">
+        <p class="release-label">Build 1300</p>
+        <h2 id="pliki-title">Pobierz pliki</h2>
+        <p>Wybierz system operacyjny. Pobieranie rozpocznie się z Google Drive.</p>
+        <div class="release-download-list">
+          {{ range site.Params.downloads }}
+          <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">
+            <span class="platform-icon platform-icon--{{ .id }}" aria-hidden="true">{{ if eq .id "windows" }}⊞{{ else }}◆{{ end }}</span>
+            <span><strong>{{ .label }}</strong><small>Archiwum ZIP</small></span>
+            <i aria-hidden="true">↓</i>
+          </a>
+          {{ end }}
+        </div>
+        <small class="release-downloads__note">Wersja pre-alpha · bezpłatnie</small>
+      </div>
+    </aside>
+  </div>
+</section>
+{{ end }}
