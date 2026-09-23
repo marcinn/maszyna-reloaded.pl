@@ -42,6 +42,7 @@ limitations:
   - text: "Po wyjściu z pojazdu przez F4 sterowanie przepada — ten klawisz opuszcza pojazd. Z widoku zewnętrznego Shift+F4 nadal działa."
   - text: "Możliwe są błędy w zachowaniu pojazdów."
   - text: "Dźwięk może być niekompletny i miejscami wadliwy."
+  - text: "Brak optymalizacji — na większych sceneriach możliwa jest niska wydajność."
 
 keymap:
   description: "Skróty odpowiadają mapie wejścia tej wersji. Dostępność konkretnej funkcji zależy od pojazdu i kompletności opisu kabiny MMD."

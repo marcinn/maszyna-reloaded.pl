@@ -1,5 +1,8 @@
 {{ define "main" }}
 {{ $release := index hugo.Data.changelog .Params.build }}
+{{ $releases := sort hugo.Data.changelog "build" "desc" }}
+{{ $latest := index $releases 0 }}
+{{ $isLatest := eq $release.build $latest.build }}
 <section class="release-hero release-hero--changelog">
   <div class="release-hero__lines" aria-hidden="true"></div>
   <div class="container release-hero__inner">
@@ -40,6 +43,7 @@
     <aside class="release-downloads" aria-labelledby="wydanie-title">
       <div class="release-downloads__card">
         <p class="release-label">Build {{ $release.build }}</p>
+        {{ if $isLatest }}
         <h2 id="wydanie-title">To wydanie</h2>
         <p>{{ $release.description }}</p>
         <div class="release-download-list">
@@ -52,6 +56,11 @@
           {{ end }}
         </div>
         <a class="release-downloads__text-link" href="#sterowanie">Sterowanie dla tego wydania →</a>
+        {{ else }}
+        <h2 id="wydanie-title">Wydanie archiwalne</h2>
+        <p>Pobieranie starszych buildów nie jest dostępne. Przejdź do aktualnego wydania.</p>
+        <a class="release-downloads__text-link" href="{{ "pobierz/" | relURL }}">Pobierz najnowszą wersję →</a>
+        {{ end }}
       </div>
     </aside>
   </div>
