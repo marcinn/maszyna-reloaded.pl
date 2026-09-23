@@ -1,6 +1,9 @@
 {{ define "main" }}
 {{ $releases := sort hugo.Data.changelog "build" "desc" }}
 {{ $release := index $releases 0 }}
+{{ $wordmark := resources.Get "img/maszyna-wordmark.png" | fingerprint }}
+{{ $godotLogo := resources.Get "img/godot-logo.svg" | minify | fingerprint }}
+{{ $godotIcon := resources.Get "img/godot.svg" | minify | fingerprint }}
 <section class="hero" id="start">
   <div class="hero-media">
     {{ partial "responsive-image.html" (dict "src" "img/gallery/tabor-kopalnia.jpg" "alt" "Trzy pojazdy kolejowe MaSzyny Reloaded na tle kopalni" "class" "hero-image" "loading" "eager" "sizes" "100vw" "widths" (slice 960 1280 1600)) }}
@@ -9,7 +12,7 @@
   <div class="container hero-inner">
     <div class="hero-copy">
       <p class="eyebrow"><span></span> Pre-alpha · Otwarty symulator kolejowy</p>
-      <h1 class="hero-title"><span class="visually-hidden">MaSzyna </span><img src="{{ "img/maszyna-wordmark.png" | relURL }}" width="794" height="118" alt="" aria-hidden="true"><em>Reloaded</em></h1>
+      <h1 class="hero-title"><span class="visually-hidden">MaSzyna </span><img src="{{ $wordmark.RelPermalink }}" width="{{ $wordmark.Width }}" height="{{ $wordmark.Height }}" alt="" aria-hidden="true"><em>Reloaded</em></h1>
       <p class="hero-lead">Klasyczna MaSzyna wjeżdża na nowy tor. Sprawdzona fizyka, nowoczesny rendering i otwarte narzędzia oparte na Godot Engine.</p>
       <div class="hero-actions">
         <div class="hero-download-stack">
@@ -42,7 +45,7 @@
       <span></span>
     </div>
     <a class="engine-lockup__godot" href="https://godotengine.org/" target="_blank" rel="noopener noreferrer" aria-label="Godot Engine — otwórz oficjalną stronę w nowej karcie">
-      <img src="{{ "img/godot-logo.svg" | relURL }}" alt="Godot Engine">
+      <img src="{{ $godotLogo.RelPermalink }}" alt="Godot Engine">
     </a>
   </div>
 </section>
@@ -69,7 +72,7 @@
       </article>
       <article class="feature-card">
         <span class="feature-number">02</span>
-        <div class="feature-icon feature-icon--godot" aria-hidden="true"><img src="{{ "img/godot.svg" | relURL }}" alt=""></div>
+        <div class="feature-icon feature-icon--godot" aria-hidden="true"><img src="{{ $godotIcon.RelPermalink }}" alt=""></div>
         <h3>Nowoczesny silnik</h3>
         <p>Godot Engine, C++ i GDExtension dają współczesny rendering oraz modułową architekturę.</p>
       </article>
@@ -105,7 +108,7 @@
       {{ range $shots }}
         {{ $original := resources.Get .src | fingerprint }}
         <figure class="gallery-item {{ .class }}">
-          <a href="{{ $original.RelPermalink }}" target="_blank" aria-label="Otwórz pełny zrzut: {{ .caption }}">
+          <a href="{{ $original.RelPermalink }}" data-lightbox data-caption="{{ .caption }}" aria-label="Otwórz pełny zrzut: {{ .caption }}">
             {{ partial "responsive-image.html" (dict "src" .src "alt" .alt "class" "gallery-image" "sizes" "(max-width: 760px) 100vw, 50vw" "widths" (slice 640 960 1600)) }}
             <figcaption><span>{{ .caption }}</span><i aria-hidden="true">↗</i></figcaption>
           </a>
@@ -114,6 +117,16 @@
     </div>
   </div>
 </section>
+
+<dialog class="lightbox" data-lightbox-dialog aria-label="Podgląd zrzutu ekranu">
+  <button class="lightbox__close" type="button" data-lightbox-close aria-label="Zamknij podgląd">×</button>
+  <button class="lightbox__nav lightbox__nav--previous" type="button" data-lightbox-previous aria-label="Poprzedni zrzut">←</button>
+  <figure>
+    <img src="" alt="" data-lightbox-image>
+    <figcaption data-lightbox-caption></figcaption>
+  </figure>
+  <button class="lightbox__nav lightbox__nav--next" type="button" data-lightbox-next aria-label="Następny zrzut">→</button>
+</dialog>
 
 <section class="section video-section" id="wideo">
   <div class="container video-layout">

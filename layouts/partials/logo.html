@@ -1,3 +1,4 @@
+{{- $logo := resources.Get "img/maszyna-reloaded-logo-v2.png" | fingerprint -}}
 <a class="brand" href="{{ site.Home.RelPermalink }}" aria-label="MaSzyna Reloaded — strona główna">
-  <img class="brand__logo" src="{{ "img/maszyna-reloaded-logo-v2.png" | relURL }}" width="936" height="312" alt="">
+  <img class="brand__logo" src="{{ $logo.RelPermalink }}" width="{{ $logo.Width }}" height="{{ $logo.Height }}" alt="">
 </a>

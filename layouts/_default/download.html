@@ -1,12 +1,13 @@
 {{ define "main" }}
 {{ $releases := sort hugo.Data.changelog "build" "desc" }}
 {{ $release := index $releases 0 }}
+{{ $wordmark := resources.Get "img/maszyna-wordmark.png" | fingerprint }}
 <section class="release-hero">
   <div class="release-hero__lines" aria-hidden="true"></div>
   <div class="container release-hero__inner">
     <a class="release-back" href="{{ site.Home.RelPermalink }}"><span aria-hidden="true">←</span> Strona główna</a>
     <p class="eyebrow"><span></span> Wydanie do pobrania</p>
-    <h1 class="release-title"><span class="visually-hidden">MaSzyna Reloaded </span><img src="{{ "img/maszyna-wordmark.png" | relURL }}" width="794" height="118" alt="" aria-hidden="true"><em>Reloaded · Exe {{ $release.version }}</em></h1>
+    <h1 class="release-title"><span class="visually-hidden">MaSzyna Reloaded </span><img src="{{ $wordmark.RelPermalink }}" width="{{ $wordmark.Width }}" height="{{ $wordmark.Height }}" alt="" aria-hidden="true"><em>Reloaded · Exe {{ $release.version }}</em></h1>
     <div class="release-version">
       <strong>{{ $release.version }} {{ $release.date }}</strong>
       <span>build {{ $release.build }}</span>

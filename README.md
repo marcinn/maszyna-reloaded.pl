@@ -27,8 +27,9 @@ make build
 - Pliki można pobierać wyłącznie dla najnowszego buildu; szczegóły starszych wydań automatycznie kierują do aktualnej wersji.
 - `hugo.toml` — linki społecznościowe i konfiguracja witryny.
 - `assets/img/gallery/` — oryginalne zrzuty ekranu przetwarzane przez Hugo.
+- `assets/img/` — lokalne obrazy i SVG publikowane z hashem zawartości; SVG są dodatkowo minifikowane.
 - `assets/scss/main.scss` — cała warstwa wizualna.
-- `static/js/site.js` — menu mobilne i dostępny wybór platformy.
+- `assets/js/site.js` — menu mobilne, widgety i lightbox galerii; Hugo nadaje skryptowi wersjonowany adres.
 
 Informacje o wykorzystanych materiałach zewnętrznych znajdują się w `THIRD_PARTY_NOTICES.md`.
 

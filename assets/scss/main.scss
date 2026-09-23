@@ -812,6 +812,94 @@ p { margin: 0 0 1em; }
   font-size: 1.25rem;
 }
 
+body.lightbox-open { overflow: hidden; }
+
+.lightbox {
+  width: 92vw;
+  max-width: 1500px;
+  height: 92vh;
+  max-height: 1000px;
+  padding: 0;
+  color: $white;
+  background: transparent;
+  border: 0;
+  overflow: visible;
+}
+
+.lightbox::backdrop {
+  background: rgba(3, 6, 5, .92);
+  backdrop-filter: blur(7px);
+}
+
+.lightbox figure {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  place-items: center;
+  margin: 0;
+}
+
+.lightbox img {
+  max-width: 100%;
+  max-height: calc(92vh - 54px);
+  object-fit: contain;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, .5);
+}
+
+.lightbox figcaption {
+  min-height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 13px;
+  color: #d5ddd8;
+  font-size: .78rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.lightbox__close,
+.lightbox__nav {
+  position: fixed;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  color: $white;
+  background: rgba(16, 23, 20, .78);
+  border: 1px solid rgba(255, 255, 255, .25);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: color .18s ease, border-color .18s ease, background .18s ease;
+}
+
+.lightbox__close:hover,
+.lightbox__nav:hover {
+  color: $ink-deep;
+  background: $orange;
+  border-color: $orange;
+}
+
+.lightbox__close {
+  top: 20px;
+  right: 22px;
+  width: 44px;
+  height: 44px;
+  font-size: 1.7rem;
+  line-height: 1;
+}
+
+.lightbox__nav {
+  top: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 1.35rem;
+  transform: translateY(-50%);
+}
+
+.lightbox__nav--previous { left: 20px; }
+.lightbox__nav--next { right: 20px; }
+
 .video-section { background: $paper-light; }
 
 .video-layout {
@@ -1584,6 +1672,12 @@ kbd {
   .facebook-follow:hover { width: 48px; gap: 0; }
   .facebook-follow svg { width: 17px; height: 20px; }
   .facebook-follow > span { display: none; }
+  .lightbox { width: calc(100vw - 24px); height: calc(100vh - 90px); }
+  .lightbox img { max-height: calc(100vh - 150px); }
+  .lightbox__close { top: 12px; right: 12px; }
+  .lightbox__nav { top: auto; bottom: 14px; width: 43px; height: 43px; transform: none; }
+  .lightbox__nav--previous { left: 14px; }
+  .lightbox__nav--next { right: 14px; }
   .hero {
     min-height: 720px;
     height: 100svh;
