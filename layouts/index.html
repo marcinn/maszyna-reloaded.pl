@@ -1,4 +1,6 @@
 {{ define "main" }}
+{{ $releases := sort hugo.Data.changelog "build" "desc" }}
+{{ $release := index $releases 0 }}
 <section class="hero" id="start">
   <div class="hero-media">
     {{ partial "responsive-image.html" (dict "src" "img/gallery/tabor-kopalnia.jpg" "alt" "Trzy pojazdy kolejowe MaSzyny Reloaded na tle kopalni" "class" "hero-image" "loading" "eager" "sizes" "100vw" "widths" (slice 960 1280 1600)) }}
@@ -10,7 +12,13 @@
       <h1 class="hero-title"><span class="visually-hidden">MaSzyna </span><img src="{{ "img/maszyna-wordmark.png" | relURL }}" width="794" height="118" alt="" aria-hidden="true"><em>Reloaded</em></h1>
       <p class="hero-lead">Klasyczna MaSzyna wjeżdża na nowy tor. Sprawdzona fizyka, nowoczesny rendering i otwarte narzędzia oparte na Godot Engine.</p>
       <div class="hero-actions">
-        {{ partial "download.html" (dict "id" "hero-download-menu") }}
+        <div class="hero-download-stack">
+          {{ partial "download.html" (dict "id" "hero-download-menu") }}
+          <div class="release-version hero-download-version" aria-label="Aktualna wersja: {{ $release.name }}">
+            <strong>{{ $release.version }} {{ $release.date }}</strong>
+            <span>build {{ $release.build }}</span>
+          </div>
+        </div>
         <a class="button button--ghost" href="#o-projekcie">Poznaj projekt <span aria-hidden="true">↓</span></a>
       </div>
       <ul class="hero-meta" aria-label="Dostępność projektu">

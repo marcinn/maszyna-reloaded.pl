@@ -302,10 +302,16 @@ p { margin: 0 0 1em; }
 
 .hero-actions {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
   gap: 14px;
   margin-top: 32px;
+}
+
+.hero-download-stack {
+  min-width: 238px;
+  display: grid;
+  gap: 8px;
 }
 
 .button {
@@ -974,6 +980,13 @@ p { margin: 0 0 1em; }
   letter-spacing: .015em;
 }
 
+.release-title img {
+  width: 100%;
+  max-width: 650px;
+  height: auto;
+  margin-bottom: 16px;
+}
+
 .release-version {
   display: flex;
   align-items: center;
@@ -992,6 +1005,8 @@ p { margin: 0 0 1em; }
 }
 
 .release-version strong { color: $ink-deep; background: $orange; border-color: $orange; }
+
+.release-version.hero-download-version { margin-top: 0; }
 
 .release-lead {
   max-width: 720px;
@@ -1517,6 +1532,7 @@ kbd {
   .hero-lead { font-size: .97rem; line-height: 1.55; }
   .hero-actions { align-items: stretch; flex-direction: column; margin-top: 25px; }
   .hero-actions .download-split,
+  .hero-actions .hero-download-stack,
   .hero-actions .button { width: 100%; }
   .hero-actions .button { min-height: 49px; }
   .download-split { min-width: 0; }
