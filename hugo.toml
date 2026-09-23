@@ -1,0 +1,33 @@
+baseURL = "https://maszyna-reloaded.pl/"
+locale = "pl_PL"
+defaultContentLanguage = "pl"
+title = "MaSzyna Reloaded — otwarty symulator kolejowy"
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term"]
+
+[params]
+  description = "MaSzyna Reloaded to nowa generacja otwartego symulatora kolejowego, rozwijana na Godot Engine i oparta na sprawdzonej fizyce MaSzyny."
+  social_image = "img/gallery/tabor-kopalnia.jpg"
+  facebook = "https://www.facebook.com/maszyna.reloaded"
+  youtube = "https://www.youtube.com/@maszynareloaded"
+  github = "https://github.com/MaSzyna-Reloaded"
+  discord = "https://discord.gg/BC3mDQn2ZD"
+  loop = "https://loop.org.pl/projects/maszyna-reloaded/"
+
+  [[params.downloads]]
+    id = "windows"
+    label = "Windows 64-bit"
+    short_label = "Windows"
+    url = "https://drive.usercontent.google.com/download?id=1H57_ABy-h0QuEqlwzWRKBZREauqrryhU&export=download&confirm=t"
+    primary = true
+
+  [[params.downloads]]
+    id = "linux"
+    label = "Linux 64-bit"
+    short_label = "Linux"
+    url = "https://drive.usercontent.google.com/download?id=1vZOftxhfaHHWeSwLM1mWt8TD80rTCO_0&export=download&confirm=t"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = false

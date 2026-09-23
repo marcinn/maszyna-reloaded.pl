@@ -1,0 +1,18 @@
+{{- $description := default site.Params.description .Params.description -}}
+{{- $image := resources.Get site.Params.social_image | fingerprint -}}
+<link rel="canonical" href="{{ .Permalink }}">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MaSzyna Reloaded">
+<meta property="og:title" content="{{ site.Title }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:image" content="{{ $image.Permalink }}">
+<meta property="og:image:width" content="{{ $image.Width }}">
+<meta property="og:image:height" content="{{ $image.Height }}">
+<meta property="og:image:alt" content="Lokomotywy MaSzyny Reloaded na tle kopalni">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ site.Title }}">
+<meta name="twitter:description" content="{{ $description }}">
+<meta name="twitter:image" content="{{ $image.Permalink }}">
+

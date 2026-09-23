@@ -1,0 +1,19 @@
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      {{ partial "logo.html" . }}
+      <p>Otwarty symulator kolejowy nowej generacji.</p>
+    </div>
+    <nav class="footer-links" aria-label="Linki społecznościowe">
+      <a href="{{ site.Params.facebook }}" target="_blank" rel="noopener noreferrer">Facebook <span aria-hidden="true">↗</span></a>
+      <a href="{{ site.Params.youtube }}" target="_blank" rel="noopener noreferrer">YouTube <span aria-hidden="true">↗</span></a>
+      <a href="{{ site.Params.github }}" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+      <a href="{{ site.Params.discord }}" target="_blank" rel="noopener noreferrer">Discord <span aria-hidden="true">↗</span></a>
+    </nav>
+    <div class="footer-meta">
+      <p>Projekt rozwijany w ramach <a href="{{ site.Params.loop }}" target="_blank" rel="noopener noreferrer">LOOP</a>.</p>
+      <p>© {{ now.Year }} MaSzyna Reloaded</p>
+      <p class="footer-license">Logo Godot Engine © Andrea Calabró, <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>.</p>
+    </div>
+  </div>
+</footer>

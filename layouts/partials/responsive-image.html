@@ -1,0 +1,15 @@
+{{- $image := resources.Get .src -}}
+{{- $fallback := $image | fingerprint -}}
+{{- $widths := default (slice 640 960 1600) .widths -}}
+{{- $variants := slice -}}
+{{- range $widths -}}
+  {{- if le . $image.Width -}}
+    {{- $variant := $image.Resize (printf "%dx webp q82" .) -}}
+    {{- $variants = $variants | append $variant -}}
+  {{- end -}}
+{{- end -}}
+<picture{{ with .pictureClass }} class="{{ . }}"{{ end }}>
+  <source type="image/webp" srcset="{{ range $index, $variant := $variants }}{{ if $index }}, {{ end }}{{ $variant.RelPermalink }} {{ $variant.Width }}w{{ end }}" sizes="{{ default "100vw" .sizes }}">
+  <img src="{{ $fallback.RelPermalink }}" alt="{{ .alt }}" width="{{ $image.Width }}" height="{{ $image.Height }}"{{ with .class }} class="{{ . }}"{{ end }} loading="{{ default "lazy" .loading }}" decoding="async"{{ if eq .loading "eager" }} fetchpriority="high"{{ end }}>
+</picture>
+
