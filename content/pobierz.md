@@ -1,5 +1,5 @@
 +++
 title = "Pobierz"
-description = "Pobierz MaSzynę Reloaded Exe Pre-Alpha 20260921 build 1300 i przeczytaj instrukcję instalacji oraz listę znanych ograniczeń."
+description = "Pobierz najnowszą wersję MaSzyny Reloaded i przeczytaj instrukcję instalacji, changelog, mapę klawiszy oraz listę znanych ograniczeń."
 layout = "download"
 +++

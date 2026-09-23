@@ -22,6 +22,8 @@ make build
 
 - `layouts/index.html` — sekcje landing page'a i podpisy galerii.
 - `layouts/page/download.html` — instrukcja, ograniczenia, changelog i pliki aktualnego wydania.
+- `data/changelog/<build>.yaml` — komplet danych wydania, w tym lista zmian, pliki, ograniczenia i mapa klawiszy.
+- Strona pobierania automatycznie wybiera plik z najwyższym numerem buildu.
 - `hugo.toml` — linki społecznościowe i adresy paczek Windows/Linux.
 - `assets/img/gallery/` — oryginalne zrzuty ekranu przetwarzane przez Hugo.
 - `assets/scss/main.scss` — cała warstwa wizualna.

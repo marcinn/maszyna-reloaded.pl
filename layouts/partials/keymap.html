@@ -1,0 +1,18 @@
+<section class="release-block" id="sterowanie" aria-labelledby="klawisze-title">
+  <p class="release-label">Sterowanie</p>
+  <h2 id="klawisze-title">Pełny wykaz klawiszy</h2>
+  <p class="controls-note">{{ .keymap.description }}</p>
+  {{ range $groupIndex, $group := .keymap.groups }}
+  <div class="control-group">
+    <div class="control-group__heading"><span>{{ printf "%02d" (add $groupIndex 1) }}</span><div><h3>{{ $group.title }}</h3><p>{{ $group.description }}</p></div></div>
+    {{ range $group.sections }}
+      {{ with .title }}<h4>{{ . }}</h4>{{ end }}
+      <div class="control-table-wrap"><table class="control-table"><thead><tr><th>Klawisz</th><th>Działanie</th></tr></thead><tbody>
+        {{ range .bindings }}
+        <tr><td><span class="key-combo">{{ range $keyIndex, $key := .keys }}{{ if $keyIndex }}<b>+</b>{{ end }}<kbd>{{ $key }}</kbd>{{ end }}</span></td><td>{{ .action }}</td></tr>
+        {{ end }}
+      </tbody></table></div>
+    {{ end }}
+  </div>
+  {{ end }}
+</section>

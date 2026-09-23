@@ -1,0 +1,59 @@
+{{ define "main" }}
+{{ $release := index hugo.Data.changelog .Params.build }}
+<section class="release-hero release-hero--changelog">
+  <div class="release-hero__lines" aria-hidden="true"></div>
+  <div class="container release-hero__inner">
+    <a class="release-back" href="{{ "pobierz/" | relURL }}"><span aria-hidden="true">←</span> Pobieranie i wszystkie wydania</a>
+    <p class="eyebrow"><span></span> Changelog</p>
+    <h1>{{ $release.version }} <em>{{ $release.date }}</em></h1>
+    <div class="release-version">
+      <span>build {{ $release.build }}</span>
+    </div>
+    <p class="release-lead">{{ $release.summary }}</p>
+  </div>
+</section>
+
+<section class="release-content">
+  <div class="container release-grid">
+    <article class="release-main">
+      <section class="release-block release-block--first" aria-labelledby="zmiany-title">
+        <p class="release-label">{{ $release.name }}</p>
+        <h2 id="zmiany-title">Zmiany w wydaniu</h2>
+        <ul class="release-change-list">
+          {{ range $release.changes }}<li>{{ . }}</li>{{ end }}
+        </ul>
+      </section>
+
+      <section class="release-block limitations" aria-labelledby="bledy-title">
+        <p class="release-label">Stan wydania</p>
+        <h2 id="bledy-title">Ograniczenia i znane błędy</h2>
+        <ul>
+          {{ range $release.limitations }}
+          <li>{{ if .important }}<strong>{{ .text }}</strong>{{ else }}{{ .text }}{{ end }}</li>
+          {{ end }}
+        </ul>
+      </section>
+
+      {{ partial "keymap.html" $release }}
+    </article>
+
+    <aside class="release-downloads" aria-labelledby="wydanie-title">
+      <div class="release-downloads__card">
+        <p class="release-label">Build {{ $release.build }}</p>
+        <h2 id="wydanie-title">To wydanie</h2>
+        <p>{{ $release.description }}</p>
+        <div class="release-download-list">
+          {{ range $release.downloads }}
+          <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">
+            <span class="platform-icon platform-icon--{{ .id }}" aria-hidden="true">{{ if eq .id "windows" }}⊞{{ else }}◆{{ end }}</span>
+            <span><strong>{{ .label }}</strong><small>Archiwum ZIP</small></span>
+            <i aria-hidden="true">↓</i>
+          </a>
+          {{ end }}
+        </div>
+        <a class="release-downloads__text-link" href="#sterowanie">Sterowanie dla tego wydania →</a>
+      </div>
+    </aside>
+  </div>
+</section>
+{{ end }}

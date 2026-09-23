@@ -1,0 +1,28 @@
+{{ define "main" }}
+<section class="release-hero release-hero--changelog">
+  <div class="release-hero__lines" aria-hidden="true"></div>
+  <div class="container release-hero__inner">
+    <a class="release-back" href="{{ site.Home.RelPermalink }}"><span aria-hidden="true">←</span> Strona główna</a>
+    <p class="eyebrow"><span></span> Historia wydań</p>
+    <h1>Changelog</h1>
+    <p class="release-lead">Informacje o kolejnych wydaniach MaSzyny Reloaded.</p>
+  </div>
+</section>
+<section class="release-content">
+  <div class="container changelog-list">
+    {{ range sort hugo.Data.changelog "build" "desc" }}
+    {{ $releaseURL := printf "changelog/%s/" .build | relURL }}
+    <article class="changelog-entry">
+      <a class="changelog-entry__meta" href="{{ $releaseURL }}">
+        <time datetime="{{ .date }}">{{ .version }} {{ .date }}</time>
+        <span>build {{ .build }}</span>
+      </a>
+      <div>
+        <h2><a href="{{ $releaseURL }}">{{ .title }}</a></h2>
+        <p>{{ .description }} <a class="changelog-entry__link" href="{{ $releaseURL }}">Czytaj changelog&nbsp;→</a></p>
+      </div>
+    </article>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

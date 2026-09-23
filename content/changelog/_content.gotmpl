@@ -1,0 +1,13 @@
+{{ range $build, $release := hugo.Data.changelog }}
+  {{ $page := dict
+    "kind" "page"
+    "path" $build
+    "title" $release.title
+    "type" "changelog"
+    "params" (dict
+      "build" $build
+      "description" $release.description
+    )
+  }}
+  {{ $.AddPage $page }}
+{{ end }}
