@@ -9,10 +9,10 @@ description: "Wydanie demonstracyjne dla systemów Windows 64-bit i Linux 64-bit
 downloads:
   - id: "windows"
     label: "Windows 64-bit"
-    url: "https://drive.usercontent.google.com/download?id=1H57_ABy-h0QuEqlwzWRKBZREauqrryhU&export=download&confirm=t"
+    url: "https://drive.usercontent.google.com/download?id=1jPGa-EtqnEWsTeFvXC2YPlquy0_W5f7H&export=download&confirm=t"
   - id: "linux"
     label: "Linux 64-bit"
-    url: "https://drive.usercontent.google.com/download?id=1vZOftxhfaHHWeSwLM1mWt8TD80rTCO_0&export=download&confirm=t"
+    url: "https://drive.usercontent.google.com/download?id=1GZA0KXQz7-GlypqejoM4DfV-fLMDIaIC&export=download&confirm=t"
 
 installation:
   warning_title: "Rozpakuj ZIP do katalogu z oryginalną MaSzyną"
