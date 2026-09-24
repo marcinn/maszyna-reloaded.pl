@@ -1,8 +1,8 @@
-build: "202609211300"
+build: "20260925003619"
 version: "Pre-Alpha"
-date: "2026-09-21"
-name: "Pre-Alpha 2026-09-21 (build 202609211300)"
-title: "MaSzyna Reloaded Exe Pre-Alpha 2026-09-21 (build 202609211300)"
+date: "2026-09-25"
+name: "Pre-Alpha 2026-09-25 (build 20260925003619)"
+title: "MaSzyna Reloaded Exe Pre-Alpha 2026-09-25 (build 20260925003619)"
 summary: "Wczesna, niekompletna wersja demonstracyjna. Nie jest pełnoprawnym zamiennikiem klasycznej MaSzyny i zawiera znane błędy."
 description: "Wydanie demonstracyjne dla systemów Windows 64-bit i Linux 64-bit."
 
@@ -27,7 +27,18 @@ installation:
       description: "Uruchom reloaded.exe z folderu gry."
 
 changes:
-  - "Wydanie demonstracyjne dla systemów Windows 64-bit i Linux 64-bit."
+  - "Elektrowozy: odbiór prądu działa bliżej oryginału. Pantograf podąża za drutem wzdłuż łańcucha przęseł, rozpoznaje granice sekcji trakcyjnej i uwzględnia szerokość odbieraka z danych pojazdu. Rezystancja sieci jest liczona w jednostkach oryginału."
+  - "Pojazdy z silnikiem asynchronicznym, w tym E186, otrzymały brakującą część sterowania: nastawnik zintegrowany, parametry falowników i próg napięciowy wyłącznika głównego."
+  - "Hamulec sprężynowy otrzymał stan początkowy z oryginalnego loadera, obsługę z klawiatury i poprawioną sygnalizację w kabinie."
+  - "Dźwięk jest odtwarzany poza głównym wątkiem. Każdy pojazd rozpoczyna szum jazdy w innym miejscu próbki, tak jak w oryginale."
+  - "Lokomotywy spalinowe emitują dym. Jego gęstość zależy od pracy silnika, a pióropusz rozwiewa się zamiast nagle znikać."
+  - "Wagony pokazują ładunek zadeklarowany przez scenerię; przy mniejszym zapełnieniu ładunek osiada niżej."
+  - "Rozkład jazdy i ETCS na ekranach w kabinie są rysowane przez oryginalne skrypty Pythona."
+  - "Symulacja wykonuje krok przed rysowaniem, dzięki czemu kamera i pojazdy korzystają z tego samego stanu. Przywrócono animację iglic rozjazdów w scenerii."
+  - "Menu i wybór scenerii otrzymały obsługę klawiatury, wyszukiwanie wielosłowne oraz podgląd pojazdu z sylwetką widoczną podczas renderowania."
+  - "Zamykanie gry podczas ładowania zatrzymuje wątki robocze przed zwolnieniem zasobów."
+  - "Katalog gry jest rozwiązywany bezwzględnie, dzięki czemu cache scenerii działa także poza edytorem. Build linuksowy powstaje na SDK Godota z glibc 2.34."
+  - "Dodano okno diagnostyczne „Tor i trakcja”, pokazujące tor, sekcję trakcyjną oraz powód braku napięcia na pantografie."
 
 limitations:
   - text: "Nie wszystkie polecenia i kontrolki działają. Nie każdy pojazd da się uruchomić."
@@ -35,14 +46,13 @@ limitations:
     important: true
   - text: "Ustawienia grafiki są obecnie na poziomie High lub wyższym. Nie można ich jeszcze zmienić."
   - text: "Rozjazdy mają błędy renderingu podsypki."
-  - text: "Animacja iglic nie działa (regresja)."
   - text: "Brak scenariuszy i AI."
     important: true
   - text: "Niekompletne opisy kabin (pliki MMD) powodują braki w sterowaniu. Istnieje warstwa obejściowa, ale nie jest jeszcze kompletna."
   - text: "Po wyjściu z pojazdu przez F4 sterowanie przepada — ten klawisz opuszcza pojazd. Z widoku zewnętrznego Shift+F4 nadal działa."
   - text: "Możliwe są błędy w zachowaniu pojazdów."
   - text: "Dźwięk może być niekompletny i miejscami wadliwy."
-  - text: "Brak optymalizacji — na większych sceneriach możliwa jest niska wydajność."
+  - text: "Brak pełnej optymalizacji — na większych sceneriach możliwa jest niska wydajność."
 
 keymap:
   description: "Skróty odpowiadają mapie wejścia tej wersji. Dostępność konkretnej funkcji zależy od pojazdu i kompletności opisu kabiny MMD."
@@ -82,6 +92,10 @@ keymap:
               action: "Zwiększenie hamulca ręcznego"
             - keys: ["Ctrl", "Num 7"]
               action: "Zmniejszenie hamulca ręcznego"
+            - keys: ["Shift", "Backspace"]
+              action: "Hamulec sprężynowy"
+            - keys: ["Ctrl", "Shift", "\\"]
+              action: "Zawór odcinający hamulca sprężynowego"
         - title: "Uruchamianie i zasilanie"
           bindings:
             - keys: ["J"]
@@ -138,9 +152,9 @@ keymap:
               action: "Oświetlenie przyrządów"
             - keys: ["'"]
               action: "Oświetlenie kabiny"
-            - keys: ["W"]
+            - keys: ["]"]
               action: "Zwiększenie prędkości wycieraczek"
-            - keys: ["Shift", "W"]
+            - keys: ["["]
               action: "Zmniejszenie prędkości wycieraczek"
             - keys: ["Y"]
               action: "Przednie lewe białe światło"
