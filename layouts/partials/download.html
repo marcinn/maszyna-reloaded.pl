@@ -1,5 +1,8 @@
+{{ $releases := sort hugo.Data.changelog "build" "desc" }}
+{{ $release := index $releases 0 }}
+{{ $releaseURL := printf "changelog/%s/" $release.build | relURL }}
 <div class="download-split">
-  <a class="download-primary download-primary--page" href="{{ "pobierz/" | relURL }}" aria-label="Przejdź do strony pobierania MaSzyny Reloaded">
+  <a class="download-primary download-primary--page" href="{{ $releaseURL }}" aria-label="Przejdź do najnowszego wydania MaSzyny Reloaded">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 20h14" /></svg>
     <span><strong>Pobierz</strong><small>Informacje i pliki</small></span>
   </a>
