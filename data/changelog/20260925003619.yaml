@@ -37,7 +37,7 @@ changes:
   - "Przywrócona animacja iglic rozjazdów"
   - "Obsługa Startera z klawiatury, ulepszona wyszukiwarka i dodane sylwetki wczytywanych miniatur pojazdów"
   - "Usunięcie błędu przy zamykaniu symulatora podczas ładowania"
-  - "Build Linux kompatybilny z GLIBC 2.34"
+  - "Build Linux kompatybilny z GLIBC 2.34 (m.in. Ubuntu 22.04+, Linux Mint 21+, elementary OS 7+, Debian 12+, Fedora 35+, RHEL 9+, Arch Linux i Manjaro)"
   - "Dodane okno diagnostyczne Tor i trakcja"
 
 limitations:
