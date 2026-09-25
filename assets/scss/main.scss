@@ -1448,6 +1448,12 @@ kbd {
   border-top: 0;
 }
 
+.release-block--current {
+  margin-bottom: 46px;
+  padding-bottom: 43px;
+  border-bottom: 1px solid $line;
+}
+
 .release-change-list {
   display: grid;
   gap: 12px;

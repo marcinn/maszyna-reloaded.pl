@@ -19,6 +19,14 @@
 <section class="release-content">
   <div class="container release-grid">
     <div class="release-main">
+      <section class="release-block release-block--first release-block--current" aria-labelledby="zmiany-title">
+        <p class="release-label">Build {{ $release.build }}</p>
+        <h2 id="zmiany-title">Zmiany w aktualnym wydaniu</h2>
+        <ul class="release-change-list">
+          {{ range $release.changes }}<li>{{ . }}</li>{{ end }}
+        </ul>
+      </section>
+
       <aside class="release-warning" aria-labelledby="instalacja-title">
         <div class="release-warning__mark" aria-hidden="true">!</div>
         <div>
