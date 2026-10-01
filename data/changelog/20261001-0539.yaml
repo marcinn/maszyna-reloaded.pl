@@ -1,0 +1,280 @@
+build: "20261001-0539"
+version: "Pre-Alpha"
+date: "2026-10-01"
+name: "Pre-Alpha 2026-10-01 (build 20261001-0539)"
+title: "MaSzyna Reloaded Exe Pre-Alpha 2026-10-01 (build 20261001-0539)"
+summary: "Wczesna, niekompletna wersja demonstracyjna. Nie jest pełnoprawnym zamiennikiem klasycznej MaSzyny i zawiera znane błędy."
+description: "Wydanie demonstracyjne dla systemów Windows 64-bit i Linux 64-bit."
+
+downloads:
+  - id: "windows"
+    label: "Windows 64-bit"
+    url: "https://drive.usercontent.google.com/download?id=1_Z59nQRHew5yQFEgPt4V8QEha2azdThq&export=download&confirm=t"
+  - id: "linux"
+    label: "Linux 64-bit"
+    url: "https://drive.usercontent.google.com/download?id=1ogdTPRPIEa4uFbbTAeifk4YcWTDEZ9V7&export=download&confirm=t"
+
+installation:
+  warning_title: "Rozpakuj ZIP do katalogu z oryginalną MaSzyną"
+  warning: "Koniecznie rozpakuj wszystkie pliki z archiwum."
+  warning_detail: "Uruchamianie programu bezpośrednio z pliku ZIP albo wypakowanie tylko części zawartości nie zadziała poprawnie."
+  steps:
+    - title: "Pobierz paczkę ZIP"
+      description: "Wybierz wersję dla Windows 64-bit albo Linux 64-bit."
+    - title: "Rozpakuj wszystkie pliki"
+      description: "Wypakuj całą zawartość archiwum do folderu z zainstalowaną oryginalną MaSzyną."
+    - title: "Uruchom grę"
+      description: "Uruchom reloaded.exe z folderu gry."
+
+changes:
+  - "Poprawiony rozkład jazdy"
+  - "Dodany radiowy sygnał odjazdu od kierownika pociągu"
+  - "Usprawniony maszynista AI"
+  - "Wczytywanie tekstowych modeli T3D"
+  - "Poprawki mechaniki kabin oraz elementów kabiny E186 (TRAXX)"
+  - "Wyższa rozdzielczość tekstur kabin"
+  - "Poprawione działanie zegara symulacji"
+  - "Korekty błędów renderowania luster"
+  - "Korekty karty pojazdu"
+  - "Możliwość zmiany katalogu z danymi gry podczas działania symulacji"
+  - "Uporządkowane API oraz poprawiona mechanika tworzenia scenerii i modeli"
+  - "Poprawione dźwięki hamulców"
+  - "Poprawione dźwięki jazdy na zewnątrz"
+  - "Usprawniony starter i heurystyka tytułów scenariuszy"
+  - "Przyspieszone wczytywanie scenerii"
+  - "Usprawnienia HUD"
+  - "Korekty importu plików FIZ"
+  - "Optymalizacje"
+  - "Poprawiony algorytm odprawy z obsługą ładunku i pasażerów"
+  - "Korekta domyślnego czasu scenariusza"
+  - "Korekty oświetlenia kabin pojazdów widocznych z zewnątrz"
+  - "Korekty renderingu sprzęgów"
+  - "Korekty obsługi skrótów klawiaturowych"
+
+limitations:
+  - text: "Nie wszystkie polecenia i kontrolki działają. Nie każdy pojazd da się uruchomić."
+  - text: "Ustawienia grafiki są obecnie na poziomie High lub wyższym. Nie można ich jeszcze zmienić."
+  - text: "Lustra zewnętrzne pozostają funkcją w trakcie prac (W.I.P.)."
+  - text: "Niekompletne opisy kabin (pliki MMD) powodują braki w sterowaniu. Istnieje warstwa obejściowa, ale nie jest jeszcze kompletna."
+  - text: "Możliwe są błędy w zachowaniu pojazdów."
+  - text: "Dźwięk może być niekompletny i miejscami wadliwy."
+  - text: "Brak pełnej optymalizacji — na większych sceneriach możliwa jest niska wydajność."
+
+keymap:
+  description: "Skróty odpowiadają mapie wejścia tej wersji. Dostępność konkretnej funkcji zależy od pojazdu i kompletności opisu kabiny MMD."
+  groups:
+    - title: "Pojazd"
+      description: "Prowadzenie, hamulce i wyposażenie pojazdu"
+      sections:
+        - title: "Prowadzenie i hamulce"
+          bindings:
+            - keys: ["Num +"]
+              action: "Zwiększenie pozycji nastawnika głównego"
+            - keys: ["Num −"]
+              action: "Zmniejszenie pozycji nastawnika głównego"
+            - keys: ["Num /"]
+              action: "Zwiększenie pozycji nastawnika dodatkowego"
+            - keys: ["Num *"]
+              action: "Zmniejszenie pozycji nastawnika dodatkowego"
+            - keys: ["D"]
+              action: "Zwiększenie pozycji kierunku jazdy"
+            - keys: ["R"]
+              action: "Zmniejszenie pozycji kierunku jazdy"
+            - keys: ["Num 9"]
+              action: "Zwiększenie pozycji kranu hamulca zespolonego"
+            - keys: ["Num 3"]
+              action: "Zmniejszenie pozycji kranu hamulca zespolonego"
+            - keys: ["Num ."]
+              action: "Pozycja napełniania kranu hamulca zespolonego"
+            - keys: ["Num 6"]
+              action: "Pozycja jazdy kranu hamulca zespolonego"
+            - keys: ["Num 4"]
+              action: "Luzowanie hamulca"
+            - keys: ["Num 1"]
+              action: "Zwiększenie hamulca dodatkowego"
+            - keys: ["Num 7"]
+              action: "Zmniejszenie hamulca dodatkowego"
+            - keys: ["Ctrl", "Num 1"]
+              action: "Zwiększenie hamulca ręcznego"
+            - keys: ["Ctrl", "Num 7"]
+              action: "Zmniejszenie hamulca ręcznego"
+            - keys: ["Ctrl", "Num 2"]
+              action: "Zwiększenie pozycji trybu hamulca"
+            - keys: ["Ctrl", "Num 8"]
+              action: "Zmniejszenie pozycji trybu hamulca"
+            - keys: ["Shift", "Backspace"]
+              action: "Hamulec sprężynowy"
+            - keys: ["Ctrl", "Shift", "\\"]
+              action: "Zawór odcinający hamulca sprężynowego"
+        - title: "Uruchamianie i zasilanie"
+          bindings:
+            - keys: ["J"]
+              action: "Bateria"
+            - keys: ["Ctrl", "J"]
+              action: "Aktywacja kabiny"
+            - keys: ["F"]
+              action: "Pompa paliwa"
+            - keys: ["Shift", "F"]
+              action: "Pompa oleju"
+            - keys: ["M"]
+              action: "Włączenie wyłącznika głównego"
+            - keys: ["Shift", "M"]
+              action: "Wyłączenie wyłącznika głównego"
+            - keys: ["X"]
+              action: "Przetwornica"
+            - keys: ["C"]
+              action: "Sprężarka"
+            - keys: ["P"]
+              action: "Przedni pantograf"
+            - keys: ["O"]
+              action: "Tylny pantograf"
+            - keys: ["Ctrl", "Shift", "O"]
+              action: "Sterowanie wybranym pantografem"
+            - keys: ["Ctrl", "P"]
+              action: "Opuść wszystkie pantografy"
+            - keys: ["Shift", "V"]
+              action: "Uruchom sprężarkę pantografu"
+            - keys: ["Ctrl", "V"]
+              action: "Zawór sprężarki pantografu"
+            - keys: ["N"]
+              action: "Reset bezpiecznika"
+            - keys: ["Ctrl", "N"]
+              action: "Reset bezpiecznika przetwornicy"
+        - title: "Bezpieczeństwo, radio i sygnały"
+          bindings:
+            - keys: ["Spacja"]
+              action: "Czuwak — potwierdzenie"
+            - keys: ["Shift", "Spacja"]
+              action: "Potwierdzenie sygnału kabinowego"
+            - keys: ["Ctrl", "R"]
+              action: "Radio"
+            - keys: ["="]
+              action: "Zwiększenie kanału radia"
+            - keys: ["−"]
+              action: "Zmniejszenie kanału radia"
+            - keys: ["Backspace"]
+              action: "Wywołanie radiowe Call 3"
+            - keys: ["Ctrl", "Shift", "Pause"]
+              action: "Radio-Stop"
+            - keys: ["A"]
+              action: "Syrena niskotonowa"
+            - keys: ["S"]
+              action: "Syrena wysokotonowa"
+            - keys: ["Z"]
+              action: "Gwizdawka"
+        - title: "Oświetlenie i kabina"
+          bindings:
+            - keys: [";"]
+              action: "Oświetlenie przyrządów"
+            - keys: ["'"]
+              action: "Oświetlenie kabiny"
+            - keys: ["Ctrl", "'"]
+              action: "Przyciemnienie oświetlenia kabiny"
+            - keys: ["T"]
+              action: "Poprzednia pozycja programatora świateł"
+            - keys: ["Shift", "T"]
+              action: "Następna pozycja programatora świateł"
+            - keys: ["Ctrl", "L"]
+              action: "Przyciemnienie reflektorów"
+            - keys: ["]"]
+              action: "Zwiększenie prędkości wycieraczek"
+            - keys: ["["]
+              action: "Zmniejszenie prędkości wycieraczek"
+            - keys: ["Y"]
+              action: "Przednie lewe białe światło"
+            - keys: ["I"]
+              action: "Przednie prawe białe światło"
+            - keys: ["U"]
+              action: "Przednie górne światło"
+            - keys: ["Shift", "Y"]
+              action: "Przednie lewe czerwone światło"
+            - keys: ["Shift", "I"]
+              action: "Przednie prawe czerwone światło"
+            - keys: ["Ctrl", "Y"]
+              action: "Tylne lewe białe światło"
+            - keys: ["Ctrl", "I"]
+              action: "Tylne prawe białe światło"
+            - keys: ["Ctrl", "U"]
+              action: "Tylne górne światło"
+            - keys: ["Ctrl", "Shift", "Y"]
+              action: "Tylne lewe czerwone światło"
+            - keys: ["Ctrl", "Shift", "I"]
+              action: "Tylne prawe czerwone światło"
+        - title: "Drzwi i pozostałe kontrolki"
+          bindings:
+            - keys: ["Shift", ","]
+              action: "Zezwolenie drzwi po lewej stronie"
+            - keys: ["Shift", "."]
+              action: "Zezwolenie drzwi po prawej stronie"
+            - keys: ["Ctrl", "Shift", ","]
+              action: "Poprzednia pozycja zezwolenia drzwi"
+            - keys: ["Ctrl", "Shift", "."]
+              action: "Następna pozycja zezwolenia drzwi"
+            - keys: ["0"]
+              action: "Przełącznik uniwersalny 0"
+            - keys: ["1"]
+              action: "Przełącznik uniwersalny 1"
+            - keys: ["2"]
+              action: "Przełącznik uniwersalny 2"
+            - keys: ["3"]
+              action: "Przełącznik uniwersalny 3"
+            - keys: ["4"]
+              action: "Przełącznik uniwersalny 4"
+            - keys: ["5"]
+              action: "Przełącznik uniwersalny 5"
+            - keys: ["6"]
+              action: "Przełącznik uniwersalny 6"
+            - keys: ["7"]
+              action: "Przełącznik uniwersalny 7"
+            - keys: ["8"]
+              action: "Przełącznik uniwersalny 8"
+            - keys: ["9"]
+              action: "Przełącznik uniwersalny 9"
+            - keys: ["Shift", "0–9"]
+              action: "Klawisze sterujące scenariusza 0–9"
+    - title: "Gracz i widoki"
+      description: "Kabina, kamera, AI, latarka i sprzęgi"
+      sections:
+        - bindings:
+            - keys: ["F5"]
+              action: "Zmiana pojazdu"
+            - keys: ["F4"]
+              action: "Wejście do kabiny lub opuszczenie pojazdu"
+            - keys: ["Shift", "F4"]
+              action: "Zmiana widoku zewnętrznego"
+            - keys: ["Shift", "Q"]
+              action: "Włączenie kierowcy AI"
+            - keys: ["Q"]
+              action: "Wyłączenie kierowcy AI"
+            - keys: ["End"]
+              action: "Następna kabina"
+            - keys: ["Home"]
+              action: "Poprzednia kabina"
+            - keys: ["F6"]
+              action: "Latarka"
+            - keys: ["Insert"]
+              action: "Połącz sprzęg"
+            - keys: ["Delete"]
+              action: "Rozłącz sprzęg"
+            - keys: ["Shift", "Delete"]
+              action: "Rozłącz zajęty sprzęg"
+    - title: "Interfejs"
+      description: "Panele informacyjne i diagnostyczne"
+      sections:
+        - bindings:
+            - keys: ["Esc"]
+              action: "Powrót do menu głównego"
+            - keys: ["F1"]
+              action: "Pomoc w prowadzeniu"
+            - keys: ["F2"]
+              action: "Rozkład jazdy"
+            - keys: ["Shift", "F2"]
+              action: "Opis scenariusza"
+            - keys: ["Tab"]
+              action: "Minimapa"
+            - keys: ["F12"]
+              action: "Interfejs HUD — pokaż lub ukryj"
+            - keys: ["F9"]
+              action: "Panel czasu i pogody"
+            - keys: ["F3"]
+              action: "Licznik FPS — tryb kompaktowy, szczegółowy lub wyłączony"
