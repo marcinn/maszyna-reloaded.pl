@@ -1389,7 +1389,6 @@ kbd {
   gap: 0;
   margin: 30px 0 0;
   padding: 0;
-  border-top: 1px solid $line;
   list-style: none;
 }
 
@@ -1397,7 +1396,6 @@ kbd {
   position: relative;
   padding: 15px 10px 15px 31px;
   color: #465149;
-  border-bottom: 1px solid $line;
   font-size: .9rem;
   line-height: 1.65;
 }
