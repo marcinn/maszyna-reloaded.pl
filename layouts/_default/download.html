@@ -38,7 +38,7 @@
 
       <section class="release-block" aria-labelledby="kroki-title">
         <p class="release-label">Instalacja</p>
-        <h2 id="kroki-title">Trzy kroki i gotowe</h2>
+        <h2 id="kroki-title">{{ default "Trzy kroki i gotowe" $release.installation.heading }}</h2>
         <ol class="release-steps">
           {{ range $index, $step := $release.installation.steps }}
           <li><span>{{ add $index 1 }}</span><div><strong>{{ $step.title }}</strong><p>{{ $step.description }}</p></div></li>
@@ -86,7 +86,7 @@
           {{ range $release.downloads }}
           <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">
             <span class="platform-icon platform-icon--{{ .id }}" aria-hidden="true">{{ if eq .id "windows" }}⊞{{ else }}◆{{ end }}</span>
-            <span><strong>{{ .label }}</strong><small>Archiwum ZIP</small></span>
+            <span><strong>{{ .label }}</strong><small>{{ default "Archiwum ZIP" .format }}</small></span>
             <i aria-hidden="true">↓</i>
           </a>
           {{ end }}
