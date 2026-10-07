@@ -50,6 +50,7 @@ changes:
   - "Dodano instalator Windows"
 
 limitations:
+  - text: "Brak dróg i możliwe braki rzek."
   - text: "Lustra zewnętrzne pozostają funkcją w trakcie prac (W.I.P.)."
   - text: "Możliwe są błędy w zachowaniu pojazdów."
   - text: "Możliwe błędy zachowania AI i przebiegu scenariuszy."
