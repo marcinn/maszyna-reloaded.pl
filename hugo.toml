@@ -8,7 +8,7 @@ disableKinds = ["taxonomy", "term"]
 [params]
   description = "MaSzyna Reloaded to nowa generacja otwartego symulatora kolejowego, rozwijana na Godot Engine i oparta na sprawdzonej fizyce MaSzyny."
   social_image = "img/gallery/tabor-kopalnia.jpg"
-  facebook = "https://www.facebook.com/maszyna.reloaded"
+  facebook = "https://www.facebook.com/rails.reloaded"
   youtube = "https://www.youtube.com/@maszynareloaded"
   github = "https://github.com/MaSzyna-Reloaded"
   discord = "https://discord.gg/BC3mDQn2ZD"
